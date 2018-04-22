@@ -7,7 +7,7 @@ import json
 import datetime
 import os.path
 
-DEBUG = True
+DEBUG = False
 DEFAULT_BACKUP = "~/Library/Application Support/MobileSync/Backup/"
 FILE_MANIFEST = "/Manifest.db"
 def echoLog(_logtext,_default_echo=True):
@@ -39,7 +39,7 @@ _filename_map = {}
 #### main
 echoLog("StartScript")
 path = os.path.expanduser(DEFAULT_BACKUP)
-echoLog(os.listdir(path))
+echoLog(os.listdir(path),False)
 
 
 while True :
@@ -105,7 +105,7 @@ for _zchat,_userid,_message,_timestamp in _c.execute("SELECT ZCHAT,ZSENDER,ZTEXT
     ## _talk[_zchat] = {"user":_talkuser,"customname":_talkuser_custom ,"msg":_talkmessage , "date":_talkdate}
     _f = open(str(_target_file)+"/zchat.csv",'a')
     _f = codecs.lookup('utf_8')[-1](_f)
-    _f.write(str(_zchat)+"\n")
+    _f.write(str("{0:05d}".format(_zchat))+"\n")
     _f.close()
     _f = open(str(_target_file)+"/"+str("{0:05d}".format(_zchat))+".csv",'a')
     _f = codecs.lookup('utf_8')[-1](_f)
