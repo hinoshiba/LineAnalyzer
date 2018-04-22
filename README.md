@@ -1,4 +1,5 @@
 # LineAnalyzer
+* python勉強がてらに作って見ましたー
 * iphoneのバックアップファイルからlineのトークcsvを生成します
 * Python 2.7.13で動作確認
 
